@@ -184,19 +184,17 @@ driving predictions and assess overlap with known DAM markers.
   across regions with differential amyloid and tangle burden (e.g. entorhinal cortex, 
   hippocampus) is not captured.
 
-- **Small donor cohort:** n=19 (11 AD, 8 control). ML findings are 
+- **Small donor cohort:** n=18 (11 AD, 7 control). ML findings are 
   hypothesis-generating only and should not be interpreted as statistically 
   conclusive.
 
 - **Ordinal pathology scores:** Plaque.Stage and Tangle.Stage are ordinal 
   neuropathological grades, not continuous quantitative measures of pathology burden.
 
-- **Automated cell type annotation:** CellTypist annotation was used without manual 
-  marker gene cross-validation for all clusters. Microglial clusters were confirmed 
-  by both CellTypist and AD-enrichment signal, but annotation of other cell types 
-  was not manually verified.
+- **No excitatory neuron cluster recovered:** . Absent in both AD and control samples, suggesting technical rather than 
+  disease-related depletion. Diffuse low-level NRGN signal across clusters is consistent with ambient RNA 
+  contamination rather than a true neuronal population.
 
----
 
 ## Repository Structure
 
