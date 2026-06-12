@@ -93,23 +93,21 @@ inspection using the Mathys 2019 panel (*NRGN*, *GAD1*, *AQP4*, *MBP*, *VCAN*,
 CellTypist with the `Adult_Human_PrefrontalCortex.pkl` reference model, using 
 majority voting over Leiden cluster boundaries. A tissue-matched PFC model was 
 chosen over generic brain models to improve annotation specificity. CellTypist 
-confirmed microglial identity for **clusters 4 and 5**, which also showed the 
-highest AD enrichment (67% and 71% AD respectively).
+confirmed microglial identity for **clusters 1 and 19**, correspondent to cell
+separation based on markers in Mathy 2019.
 
 ### 8. Microglial Subclustering 
-Clusters 4 and 5 isolated and reclustered at resolution of 0.5 to resolve 
+Clusters 1 and 19 isolated and reclustered at resolution of 0.5 to resolve 
 DAM-like vs homeostatic substates.
 
 ### 9. DAM State Scoring
-Each microglial nucleus scored continuously against human-validated signatures:
+Each microglial nucleus scored continuously against signatures in each microglial substate:
 
 | State | Marker Genes |
 |---|---|
-| Homeostatic | *P2RY12, CX3CR1, TMEM119, SALL1, CSF1R* |
-| DAM-like | *TREM2, APOE, SPP1, CD74* |
+| Homeostatic | *P2RY12, CX3CR1, TMEM119, P2RY13* |
+| DAM-like | *SPP1, TREM2, APOE, CD9, CD68* |
 
-Downregulation of homeostatic markers in DAM-scored cells used as confirmatory 
-evidence, not primary annotation.
 
 ### 10. Pathology Correlation 
 Donor-level pseudobulked DAM scores correlated against Plaque.Stage and 
