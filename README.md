@@ -165,6 +165,8 @@ genes' expression contributed most to their predicted disease status.
 >
 > 
 > <img width="425" height="301" alt="image" src="https://github.com/user-attachments/assets/c593f286-61bf-4ab9-884c-a5dd5ef03e81" />
+>
+>
 > Further confirmation of the proportionof AD and control in each subcluster:
 >
 > 
