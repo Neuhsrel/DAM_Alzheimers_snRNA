@@ -126,28 +126,35 @@ genes' expression contributed most to their predicted disease status.
 **1. Clustering by cell type**
 > 17 clusters were identified and were separate plots were generated for each cell type's markers from
 > Mathys 2019 panel.
+> 
 > <img width="1217" height="1069" alt="image" src="https://github.com/user-attachments/assets/7eb10b10-f1d6-4ee9-98bc-a75f37e84b30" />
 > CellTypist was also used to validate the manual annotation, which largely corresponded. However, excitatory
 > neurons were not identified in both methods for both AD and control samples. This could be due to snRNA-seq not capturing
 > transcripts localised to excitatory neuronal processes rather thatn disease-related depletion.
+> 
 > <img width="2019" height="450" alt="image" src="https://github.com/user-attachments/assets/ba11c231-7f3e-4492-8ef9-fe260fbf745c" />
 
 
 **2. Microglial cluster identity and AD enrichment**  
 > Clusters 1 and 19 were classified as microglia in the initial clustering.
 > Further clustering was done, identifying 4 transcriptionally distinct microglial subclusters.
+> 
 > <img width="1028" height="445" alt="image" src="https://github.com/user-attachments/assets/2dc2483f-5dbf-4720-9e1f-c04eb66f3628" />
 > These subclusters were scored based on the expression of DAM and homeostatic markers based on literature. However, scores
 > were relatively diffused and not conclusive enough to assign states to each cluster.
+> 
 > <img width="4196" height="450" alt="image" src="https://github.com/user-attachments/assets/e826ce16-5efe-4afc-ba2b-94c252af35a4" />
 > Differential analysis between AD and control microglia was done to identify what were the genes differentiating the
 > 2 substates most instead of literature markers (that did not show large enough distinction). However, in "AD vs rest"
 > plot, XIST was one of the top genes, which was unexpected as it is not an AD-related gene marker.
+> 
 > <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/cc56f844-e53a-4901-837c-55719c1abc73" />
 > Since XIST is largely expressed in females, there could be disproportionate samples for male and female donors. This was
 > confirmed by a cross-tabulation: 53% of the AD cells were female, but 67% of the control cells were male.
 > Thus, differential analysis was done for each sex.
+> 
 > Female
+> 
 > <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/dc27ab86-dfff-48c8-801c-a436a8ca1d4c" />
 > Male
 > <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/4e3dd925-929d-4c11-a8df-e7fe755b022a" />
@@ -155,8 +162,12 @@ genes' expression contributed most to their predicted disease status.
 > signals in the scoring. (Canonical markers are based on scRNA-seq, so cytoplasmic transcripts might not be captured in
 > snRNA-seq). A dotplot was done based on the common differentially expressed markers in both sexes, for both DAM and
 > homeostatic - see Worfkflow.
+>
+> 
 > <img width="425" height="301" alt="image" src="https://github.com/user-attachments/assets/c593f286-61bf-4ab9-884c-a5dd5ef03e81" />
 > Further confirmation of the proportionof AD and control in each subcluster:
+>
+> 
 > <img width="262" height="115" alt="image" src="https://github.com/user-attachments/assets/618fd627-a572-4de1-bf17-e24908d21dec" />
 
 
@@ -165,9 +176,21 @@ genes' expression contributed most to their predicted disease status.
 > 
 
 **4. Predictive modelling**  
-> [Observation: AUC, cross-validation performance]  
-> [Biological interpretation: which SHAP-ranked genes overlap with DAM signatures]  
-> [Hypothesis: ]
+
+> **Architecture:** 3-layer MLP (32 → 16 → 1), Dropout(0.3), BCEWithLogitsLoss with class imbalance weighting.
+
+> **Performance:** 5-fold stratified cross-validation yielded mean AUC 0.950 ± 0.100. Given n=18, perfect separation in 4 of 5 folds likely reflects overfitting rather than true generalisation.
+>  Note: Classification performance is not the primary claim of this analysis. Further validation on larger cohorts is needed.
+
+> **SHAP interpretation:** MEF2C (mean |SHAP| = 1.22) and DPYD (1.01) were the strongest predictors. High MEF2C pushed predictions toward Control — consistent with its 
+> role as a homeostatic microglial transcription factor. High DPYD pushed toward AD. Notably, NEAT1 and 
+> MALAT1, the top DE genes at the cell level, ranked lower in donor-level SHAP importance, highlighting the difference 
+> between statistical differential expression and predictive relevance at the donor level.
+> <img width="778" height="450" alt="image" src="https://github.com/user-attachments/assets/68b3cda8-9216-4c80-9276-0369e6b4e106" />
+>
+> <img width="738" height="450" alt="image" src="https://github.com/user-attachments/assets/a792014c-c4f5-425c-8710-d5d1f613db10" />
+
+
 
 ---
 
@@ -244,6 +267,8 @@ alzheimer-microglia-snrnaseq/
   *Nature*, 570, 332–337.  
   *(ROSMAP single-cell atlas; marker gene reference)*
 
-- 
+-  Morabito S, Miyoshi E, Michael N, Shahin S et al. Single-nucleus chromatin accessibility
+   and transcriptomic characterization of Alzheimer's disease. Nat Genet 2021 Aug;53(8):1143-1155.
+   
 - Sun N et al. (2023). Human microglial state dynamics in Alzheimer's disease 
   progression. *Cell*, 186(20), 4386–4403.  
