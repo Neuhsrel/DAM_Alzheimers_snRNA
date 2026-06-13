@@ -1,4 +1,4 @@
-### Single-nucleus RNA-seq analysis of disease-associated microglial heterogeneity  
+### Single-nucleus RNA-seq analysis of Disease-Associated Microglial Heterogeneity  
 ### Human prefrontal cortex — GSE174367
 
 ---
@@ -97,7 +97,7 @@ confirmed microglial identity for **clusters 1 and 19**, correspondent to cell
 separation based on markers in Mathy 2019.
 
 ### 8. Microglial Subclustering 
-Clusters 1 and 19 isolated and reclustered at resolution of 0.5 to resolve 
+Clusters 1 and 19 isolated and reclustered at resolution of 0.3 to resolve 
 DAM-like vs homeostatic substates.
 
 ### 9. DAM State Scoring
@@ -123,20 +123,46 @@ genes' expression contributed most to their predicted disease status.
 
 ## Results
 
+**1. Clustering by cell type**
+> 17 clusters were identified and were separate plots were generated for each cell type's markers from
+> Mathys 2019 panel.
+> <img width="1217" height="1069" alt="image" src="https://github.com/user-attachments/assets/7eb10b10-f1d6-4ee9-98bc-a75f37e84b30" />
+> CellTypist was also used to validate the manual annotation, which largely corresponded. However, excitatory
+> neurons were not identified in both methods for both AD and control samples. This could be due to snRNA-seq not capturing
+> transcripts localised to excitatory neuronal processes rather thatn disease-related depletion.
+> <img width="2019" height="450" alt="image" src="https://github.com/user-attachments/assets/ba11c231-7f3e-4492-8ef9-fe260fbf745c" />
+
+
 **2. Microglial cluster identity and AD enrichment**  
-> [Observation: which clusters, what proportion AD]  
-> [Biological interpretation: what this suggests about microglial activation in AD PFC]  
-> [Hypothesis: what the next analysis should test]
+> Clusters 1 and 19 were classified as microglia in the initial clustering.
+> Further clustering was done, identifying 4 transcriptionally distinct microglial subclusters.
+> <img width="1028" height="445" alt="image" src="https://github.com/user-attachments/assets/2dc2483f-5dbf-4720-9e1f-c04eb66f3628" />
+> These subclusters were scored based on the expression of DAM and homeostatic markers based on literature. However, scores
+> were relatively diffused and not conclusive enough to assign states to each cluster.
+> <img width="4196" height="450" alt="image" src="https://github.com/user-attachments/assets/e826ce16-5efe-4afc-ba2b-94c252af35a4" />
+> Differential analysis between AD and control microglia was done to identify what were the genes differentiating the
+> 2 substates most instead of literature markers (that did not show large enough distinction). However, in "AD vs rest"
+> plot, XIST was one of the top genes, which was unexpected as it is not an AD-related gene marker.
+> <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/cc56f844-e53a-4901-837c-55719c1abc73" />
+> Since XIST is largely expressed in females, there could be disproportionate samples for male and female donors. This was
+> confirmed by a cross-tabulation: 53% of the AD cells were female, but 67% of the control cells were male.
+> Thus, differential analysis was done for each sex.
+> Female
+> <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/dc27ab86-dfff-48c8-801c-a436a8ca1d4c" />
+> Male
+> <img width="1947" height="473" alt="image" src="https://github.com/user-attachments/assets/4e3dd925-929d-4c11-a8df-e7fe755b022a" />
+> The top differentially expressed gene markers were different from the canonical gene markers, which explains the diffuse
+> signals in the scoring. (Canonical markers are based on scRNA-seq, so cytoplasmic transcripts might not be captured in
+> snRNA-seq). A dotplot was done based on the common differentially expressed markers in both sexes, for both DAM and
+> homeostatic - see Worfkflow.
+> <img width="425" height="301" alt="image" src="https://github.com/user-attachments/assets/c593f286-61bf-4ab9-884c-a5dd5ef03e81" />
+> Further confirmation of the proportionof AD and control in each subcluster:
+> <img width="262" height="115" alt="image" src="https://github.com/user-attachments/assets/618fd627-a572-4de1-bf17-e24908d21dec" />
 
-**3. DAM-like vs homeostatic substate resolution**  
-> [Observation: how many substates identified, which marker genes define them]  
-> [Biological interpretation: do substates match published human DAM signatures]  
-> [Hypothesis: ]
 
-**4. Pathology correlation — plaque vs tangle**  
-> [Observation: correlation coefficients, which pathology stage tracks DAM score more closely]  
-> [Biological interpretation: what this implies about when microglia activate]  
-> [Hypothesis: ]
+**3. Pathology correlation — plaque vs tangle**  
+> <img width="421" height="141" alt="image" src="https://github.com/user-attachments/assets/29a092e3-97be-42fb-96ba-cfd619eb3dbc" />
+> 
 
 **4. Predictive modelling**  
 > [Observation: AUC, cross-validation performance]  
